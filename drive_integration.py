@@ -17,9 +17,9 @@ def authenticate_drive():
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
         else:
-            # Use the Loopback IP (127.0.0.1) and fixed port
+            # Use localhost and fixed port
             flow = InstalledAppFlow.from_client_secrets_file('client_secret.json', SCOPES)
-            creds = flow.run_local_server(port=49441)  # Fixed port for loopback IP
+            creds = flow.run_local_server(port=49441, host='localhost')  # Using localhost
         # Save the credentials for the next time
         with open('token.json', 'w') as token:
             token.write(creds.to_json())
