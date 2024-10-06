@@ -11,6 +11,9 @@ logging.basicConfig(level=logging.DEBUG)
 # Define the API scope for read-only access to Google Drive
 SCOPES = ['https://www.googleapis.com/auth/drive.readonly']
 
+# Replace with your Codespaces' public URL
+REDIRECT_URI = 'https://silver-space-yodel-x5vvxx7457rgcg6q-49441.app.github.dev/'  # Update to the correct public URL
+
 def authenticate_drive():
     creds = None
     # Check if token.json already exists (this stores your credentials after the first login)
@@ -22,9 +25,10 @@ def authenticate_drive():
             creds.refresh(Request())
         else:
             logging.debug("Initiating OAuth flow")
-            # Initiate the OAuth flow without passing `redirect_uri`
-            flow = InstalledAppFlow.from_client_secrets_file('client_secret.json', SCOPES)
-            creds = flow.run_local_server(port=49441)  # Only the port
+            # Initiate the OAuth flow with the external forwarded URL
+            flow = InstalledAppFlow.from_client_secrets_file(
+                'client_secret.json', SCOPES, redirect_uri=REDIRECT_URI)
+            creds = flow.run_local_server(port=49441)
         # Save the credentials for the next time
         with open('token.json', 'w') as token:
             token.write(creds.to_json())
