@@ -17,9 +17,9 @@ def authenticate_drive():
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
         else:
-            # Use localhost and fixed port
+            # Use the Loopback IP (localhost) and fixed port
             flow = InstalledAppFlow.from_client_secrets_file('client_secret.json', SCOPES)
-            creds = flow.run_local_server(port=49441, host='localhost')  # Using localhost
+            creds = flow.run_local_server(port=49441)  # Using localhost:49441 here
         # Save the credentials for the next time
         with open('token.json', 'w') as token:
             token.write(creds.to_json())
@@ -30,7 +30,7 @@ def fetch_design_guidelines(file_name='WP-Tables Design Guidelines'):
     # Search for the file by its name
     results = service.files().list(q=f"name='{file_name}'", fields="files(id, name)").execute()
     items = results.get('files', [])
-    
+
     if not items:
         print(f"No file found with the name: {file_name}")
     else:
