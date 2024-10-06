@@ -22,12 +22,9 @@ def authenticate_drive():
             creds.refresh(Request())
         else:
             logging.debug("Initiating OAuth flow")
-            # Explicitly set the redirect_uri to the GitHub Codespaces address
+            # Initiate the OAuth flow without passing `redirect_uri`
             flow = InstalledAppFlow.from_client_secrets_file('client_secret.json', SCOPES)
-            creds = flow.run_local_server(
-                port=49441,
-                redirect_uri='https://silver-space-yodel-x5vvxx7457rgcg6q-49441.app.github.dev/'  # Use Codespaces URI
-            )
+            creds = flow.run_local_server(port=49441)  # Only the port
         # Save the credentials for the next time
         with open('token.json', 'w') as token:
             token.write(creds.to_json())
