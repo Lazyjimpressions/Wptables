@@ -1,0 +1,1 @@
+[30-Sep-2024 22:57:54 UTC] PHP Fatal error:  Cannot redeclare create_dynamic_table() (previously declared in /home/kfw3qz2o2k7o/public_html/wp-tables.com/wp-content/themes/generatepress-child/functions.php:9) in /home/kfw3qz2o2k7o/public_html/wp-tables.com/wp-content/plugins/wp-tables-custom/wp-tables-custom.php on line 56

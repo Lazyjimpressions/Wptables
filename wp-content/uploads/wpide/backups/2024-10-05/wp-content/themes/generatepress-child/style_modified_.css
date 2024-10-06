@@ -1,0 +1,38 @@
+/*
+Theme Name: GeneratePress Child
+Theme URI: https://yourwebsite.com
+Description: Child theme for WP-Tables.com
+Author: Your Name
+Template: generatepress
+Version: 1.0
+*/
+
+/* Custom Homepage Styles */
+
+.homepage-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#react-root {
+    width: 100%;
+    min-height: 600px;
+}
+
+.homepage-header {
+    font-size: 2.5rem;
+    color: #333333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.homepage-section {
+    background-color: #f5f5f5;
+    padding: 40px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+}

@@ -1,0 +1,11 @@
+{
+  "name": "wp-tables.com",
+  "version": "1.0.0",
+  "description": "a wordpress plugin with features similar to airtable",
+  "main": "index.js",
+  "scripts": {
+    "test": "\"echo \\\"Error: no test specified\\\" && exit 1\""
+  },
+  "author": "jh",
+  "license": "ISC"
+}

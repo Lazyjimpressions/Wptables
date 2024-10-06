@@ -1,0 +1,16 @@
+/*
+Theme Name: GeneratePress Child
+Theme URI: https://yourwebsite.com
+Description: Child theme for WP-Tables.com
+Author: Your Name
+Template: generatepress
+Version: 1.0
+*/
+
+body {
+    background-color: #f0f0f0; /* Just a test to change the background */
+}
+
+body {
+    font-size: 12px;
+}
